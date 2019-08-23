@@ -22,14 +22,24 @@ public class BowlingScoreTest {
 	@Test
 	public void testSingleRollBowlingScore() 
 	{
-		score.roll(1);
-		assertEquals(1,score.getScore());	
+		score.roll(7);
+		assertEquals(7,score.getScore());	
 	}
 	@Test
 	public void test20RollBowlingScore() 
 	{
-		completeGame(20,1);
-		assertEquals(20,score.getScore());	
+		completeGame(20,5);
+		assertEquals(100,score.getScore());	
+	
+	}
+	@Test
+	public void test20RollBowlingScoreWithSpare() 
+	{
+		score.roll(3);
+		score.roll(7);
+		completeGame(18,2);
+		assertEquals(48,score.getScore());
+			
 	}
 	
 	//automate in case of same score for multiple consecutive rolls
