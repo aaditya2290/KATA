@@ -28,8 +28,8 @@ public class BowlingScoreTest {
 	@Test
 	public void test20RollBowlingScore() 
 	{
-		completeGame(20,5);
-		assertEquals(100,score.getScore());	
+		completeGame(20,3);
+		assertEquals(60,score.getScore());	
 	
 	}
 	@Test
