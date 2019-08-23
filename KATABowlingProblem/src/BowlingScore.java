@@ -37,6 +37,8 @@ public class BowlingScore {
     	   roll+=2;
     	   }
        }
+       
+       rollScores.clear();
        return score;
        }
     	 
