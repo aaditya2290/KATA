@@ -41,6 +41,16 @@ public class BowlingScoreTest {
 		assertEquals(48,score.getScore());
 			
 	}
+	@Test
+	public void test20RollBowlingScoreWithStrike() 
+	{
+		completeGame(18,2);
+		score.roll(10);
+		score.roll(1);
+		score.roll(9);
+		assertEquals(56,score.getScore());
+			
+	}
 	
 	//automate in case of same score for multiple consecutive rolls
 	public void completeGame(int rollCount, int pinsDown)
