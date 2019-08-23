@@ -22,12 +22,20 @@ public class BowlingScore {
        //as each game consists max 10 frames and maximum 2 rolls per frame
        for (int frame=0;frame<10;frame++)
        {
+    	   if (isStrike(roll)) //strike scenario
+    	   {
+    		score+=10+rollScores.get(roll+1)+rollScores.get(roll+2);
+    		roll++;  
+    	   }
+    	   else
+    	   {   
     	   if (isSpare(roll))	  //spare scenario  
     	  score+=10+rollScores.get(roll+2);
     	   else
     	  score+=rollScores.get(roll)+rollScores.get(roll+1);
     	
     	   roll+=2;
+    	   }
        }
        return score;
        }
@@ -42,6 +50,10 @@ public class BowlingScore {
    public boolean isSpare(int roll)
    {
 	   return rollScores.get(roll)+rollScores.get(roll+1)==10;
+   }
+   public boolean isStrike(int roll)
+   {
+	   return rollScores.get(roll)==10;
    }
 
 }
