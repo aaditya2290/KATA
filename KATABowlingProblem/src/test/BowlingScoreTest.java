@@ -1,24 +1,25 @@
+package test;
 import static org.junit.Assert.*;
-
+import main.BowlingScore;
 import org.junit.Test;
 
 
 public class BowlingScoreTest {
-	
+
 	BowlingScore score;
-	
+
 	public BowlingScoreTest()
 	{
-	 score=new BowlingScore();
+		score=new BowlingScore();
 	}
 
 	@Test
 	public void testZeroBowlingScore() 
 	{
-		
+
 		assertEquals(0,score.getScore());	
 	}
-	
+
 	@Test
 	public void testSingleRollBowlingScore() 
 	{
@@ -30,7 +31,7 @@ public class BowlingScoreTest {
 	{
 		completeGame(20,3);
 		assertEquals(60,score.getScore());	
-	
+
 	}
 	@Test
 	public void testBowlingScoreWithSpare() 
@@ -39,7 +40,7 @@ public class BowlingScoreTest {
 		score.roll(7);
 		completeGame(18,2);
 		assertEquals(48,score.getScore());
-		
+
 	}
 	@Test
 	public void testBowlingScoreWithStrike() 
@@ -49,7 +50,7 @@ public class BowlingScoreTest {
 		score.roll(1);
 		score.roll(9);
 		assertEquals(56,score.getScore());
-				
+
 	}
 	@Test
 	public void testBowlingScoreAllStrikes() 
@@ -58,7 +59,7 @@ public class BowlingScoreTest {
 		score.roll(10);
 		score.roll(10);
 		assertEquals(300,score.getScore());
-				
+
 	}
 	@Test
 	public void testBowlingScoreAllSpares() 
@@ -66,15 +67,15 @@ public class BowlingScoreTest {
 		completeGame(20,5);
 		score.roll(10);
 		assertEquals(155,score.getScore());
-		
+
 		for (int i=0;i<10;i++)
 		{
 			score.roll(9);
 			score.roll(1);	
 		}
-		    score.roll(9);
-		    assertEquals(190,score.getScore());
-				
+		score.roll(9);
+		assertEquals(190,score.getScore());
+
 	}
 	@Test
 	public void testBowlingScoreMissSpare() 
@@ -84,16 +85,16 @@ public class BowlingScoreTest {
 			score.roll(0);
 			score.roll(10);	
 		}
-		    score.roll(10);
-		    assertEquals(110,score.getScore());	
-				
+		score.roll(10);
+		assertEquals(110,score.getScore());	
+
 	}
 	//automate in case of same score for multiple consecutive rolls
 	public void completeGame(int rollCount, int pinsDown)
 	{
 		for (int i=0; i<rollCount;i++)
-		score.roll(pinsDown);	
+			score.roll(pinsDown);	
 	}
-	
-	
+
+
 }
