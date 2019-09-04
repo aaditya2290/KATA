@@ -14,22 +14,22 @@ public class BowlingScore {
 		int score=0;
 		int roll=0;
 
-		//to check single roll score in test cases
+
 		if (rollScores.size()<2)
 			return simpleScore;
 		else
 		{	   
-			//as each game consists max 10 frames and maximum 2 rolls per frame
+
 			for (int frame=0;frame<10;frame++)
 			{
-				if (isStrike(roll)) //strike scenario
+				if (isStrike(roll)) 
 				{
 					score+=10+rollScores.get(roll+1)+rollScores.get(roll+2);
 					roll++;  
 				}
 				else
 				{   
-					if (isSpare(roll))	  //spare scenario  
+					if (isSpare(roll))	    
 						score+=10+rollScores.get(roll+2);
 					else
 						score+=rollScores.get(roll)+rollScores.get(roll+1);

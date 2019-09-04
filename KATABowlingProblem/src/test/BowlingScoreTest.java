@@ -1,6 +1,8 @@
 package test;
 import static org.junit.Assert.*;
 import main.BowlingScore;
+
+import org.junit.Before;
 import org.junit.Test;
 
 
@@ -8,7 +10,8 @@ public class BowlingScoreTest {
 
 	BowlingScore score;
 
-	public BowlingScoreTest()
+	@Before
+	public void initializeBowlingScore()
 	{
 		score=new BowlingScore();
 	}
@@ -89,7 +92,7 @@ public class BowlingScoreTest {
 		assertEquals(110,score.getScore());	
 
 	}
-	//automate in case of same score for multiple consecutive rolls
+
 	public void completeGame(int rollCount, int pinsDown)
 	{
 		for (int i=0; i<rollCount;i++)
